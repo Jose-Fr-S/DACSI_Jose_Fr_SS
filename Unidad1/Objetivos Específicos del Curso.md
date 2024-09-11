@@ -1,0 +1,4 @@
+- Revisar la metodología a seguir para el desarrollo los sistemas de información.
+- La evaluación de los mismos, el estudio de necesidades o requerimientos de información de las organizaciones son algunas de las actividades que cotidianamente realizara un Ingeniero de esta carrera dentro del ámbito empresarial.
+- Proporciona elementos para entender la importancia de la información dentro de las organizaciones, la forma eficiente de generarla y utilizarla en la toma decisiones.
+- Desarrollo de un sistema de información desde principio a fin.

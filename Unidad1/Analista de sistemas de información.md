@@ -1,0 +1,1 @@
+El analista de sistemas evalúa de manera sistemática el funcionamiento de un negocio mediante el examen de la entrada y el procesamiento de datos y su consiguiente producción de información, con el propósito de mejorar los procesos de una organización. 
