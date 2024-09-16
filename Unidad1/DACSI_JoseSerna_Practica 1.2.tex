@@ -1,0 +1,229 @@
+\documentclass[12pt]{report}
+\usepackage[a4paper]{geometry} % Configuración de márgenes y dimensiones de página
+
+\usepackage[utf8]{inputenc} % Codificación de caracteres
+\usepackage[spanish]{babel} % Configuración de idioma español
+\usepackage{amssymb} % Símbolos matemáticos adicionales
+\usepackage{subfigure} % Creación de subfiguras dentro de una figura
+\usepackage{newunicodechar} % Soporte para caracteres Unicode
+\usepackage{graphicx} % Inclusión de imágenes
+\usepackage{amsmath} % Ampliación de funcionalidades matemáticas
+\usepackage{xspace} % Control del espacio después de comandos
+\usepackage{booktabs} % Mejora la apariencia de las tablas
+\usepackage[table,xcdraw]{xcolor} % Colores personalizados para tablas
+\usepackage{url} % Inclusión y formato de enlaces URL
+\usepackage{lineno} % Numeración de líneas
+\usepackage{enumitem} % Control de listas y enumeraciones
+\usepackage{soul} % Resaltado de texto con subrayado
+\usepackage[numbers]{natbib} % Citas bibliográficas y bibliografía
+\usepackage[colorlinks=true, bookmarks=false, citecolor=blue, urlcolor=blue, linkcolor=blue, linktoc=page]{hyperref} % Creación de enlaces y referencias
+\usepackage{titlesec} % Control del formato de títulos de sección
+\usepackage{fancyhdr} % Personalización de encabezados y pies de página
+\usepackage{datetime} % Manipulación de fechas y tiempos
+% Modificar márgenes
+\geometry{left=2.5cm, right=2.5cm, top=2.0cm, bottom=2.0cm}
+% Espaciado entre líneas
+\linespread{1.5} 
+% Cambiar nombre a tablas
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
+% Cambiar nombre a lista de tablas
+\addto\captionsspanish{\renewcommand{\listtablename}{Índice de tablas}}
+% Modificar el estilo de los capítulos
+\titleformat{\chapter}[display]
+{\color{black}\fontfamily{pcr}\LARGE\scshape\raggedleft}
+{\chaptertitlename\ \color{red}\fontsize{20}{00}\mdseries\thechapter} {-10pt} {\color{black}\rmfamily\huge}
+%\titlespacing*{\chapter}{0pt}{0pt}{50pt}
+% Diseño del encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\nouppercase{\leftmark}}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.1pt}
+% Quitar espacio vertical en listas
+\setlist[itemize]{noitemsep, topsep=0pt}
+% Numerar las secciones
+\setcounter{secnumdepth}{4} % Establece la profundidad de numeración de secciones
+\titleformat{\paragraph}{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{} % Define el formato de las subsubsubsecciones
+% Modificar la tabla de contenido
+\setcounter{tocdepth}{4}
+\addto\captionsspanish{\renewcommand{\contentsname}{Contenido}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% AQUI INICIA EL DOCUMENTO %%%%%%%
+\begin{document}
+\pagenumbering{Roman}
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
+\begin{titlepage}
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\begin{minipage}[c]{0.15\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/00_TECNM.png}
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textsc{\large Instituto Tecnológico de Pabellón de Arteaga}\\[0.3cm]
+        \textsc{\large Ingeniería en TIC's}\\[0.3cm]
+        \hrule height1pt
+        \vspace{0.1cm}
+        \hrule height2pt
+        \vspace{0.3cm}
+\end{minipage}
+
+\begin{minipage}[c]{0.15\textwidth}
+    \vspace{0.5cm}
+    \hspace{0.5cm}
+    \vrule width1pt height15cm 
+    \hspace{0.05cm}
+    \vrule width2pt height15cm
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \textbf{\large Implementacion de Odoo sistema de invnetario y punto de venta}\\[1cm]
+        \text{\large Por}\\[1cm]
+        \text{\Large Jose Francisco Serna Santana}\\[1cm]
+        \textit{\large Avance del proyectó de la implementación de odoo punto de venta e inventario}\\[1cm]
+        \textbf{\Large Odoo}\\[1cm]
+\end{minipage}
+\begin{minipage}[c]{0.20\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{01_Figuras/pabellon.png}
+\end{minipage}
+\hfill % Espacio horizontal entre las cajas
+\begin{minipage}[c]{0.8\textwidth}
+    \centering
+        \mdseries{\large Pabellón de Arteaga, Aguascalientes, \the\year}
+\end{minipage}
+
+\end{titlepage}
+\restoregeometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%% RESUMEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\newgeometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\addcontentsline{toc}{chapter}{Resumen}
+\begin{center}
+\textsc{\Huge Resumen}\\[0.5cm]
+\textbf{\large Implementar un punto de venta basado en la plataforma Odoo para optimizar los procesos de inventario, ventas de productos en ferrteria y abarrotes. Esto permitirá mejorar la eficiencia operativa, reducir costos y tomar decisiones más informadas. }\\[0.25cm]
+\text{\large Por: Jose Francisco Serna Santana}\\[0.5cm]
+\end{center}
+
+
+\restoregeometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%% TABLA DE CONTENIDO %%%%%%%%%%%%%%%%%
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+\chapter{Introducción}
+
+\large {En este documento se dira el proceso de implementación de Odoo Punto de Venta. El objetivo principal es optimizar nuestras operaciones de venta al por menor, mejorar la eficiencia y precisión en la gestión de inventario y pagos, y brindar una experiencia de compra más satisfactoria a nuestros clientes. }\\[0.25cm]
+
+\newpage
+\pagenumbering{arabic}
+\chapter{Preguntas}
+
+\large {
+1. ¿Cuál es el tamaño aproximado de su inventario actual? 
+
+El tamaño de inventario en abarrotes tenemos un aproximado de 300 productos diferentes y de ferretería son aproximadamente 100 productos.}\\[0.25cm]
+
+\large {
+2. ¿Qué tipo de productos vende principalmente?
+
+Los productos que más vendemos de abarrotes son los productos básicos como son leche frijol aceite harina y también lo que son refrescos pan y lo que es dulce, si lo que es fritura.}\\[0.25cm]
+
+\large {
+3. ¿Cómo realiza actualmente el seguimiento de su inventario? (¿Manual, hojas de cálculo, otro sistema?)
+
+Es de manera manual de hecho no hemos tenido un inventario así de bien, no lo hemos realizado porque así lo hemos llevado simplemente verdad de una forma, pues básica.}\\[0.25cm]
+
+\large {
+4. ¿Con qué frecuencia realiza el inventario físico?
+
+Con respuesta a con qué frecuencia hacemos el inventario físico, pues normalmente lo hacemos semanalmente para ver los productos que nos hacen falta y pues poderlos adquirir o solicitar con el proveedor.}\\[0.25cm]
+
+\large {
+5. ¿Cómo captura los datos de sus ventas actualmente?}\\[0.25cm]
+
+\large {
+6. ¿Cómo gestiona las devoluciones y los cambios de productos?
+
+Para la gestión de devoluciones lo que hacemos es checar, el producto que venga en buena condición y que no venga manipulado y así pues se hace la devolución.}\\[0.25cm]
+
+\large {
+7. ¿Tiene algún sistema de gestión de clientes actualmente?
+
+Actualmente no tengo ninguna gestión de clientes excepto los en mis contactos nada más, pero en sí que tenga una lista para hablar o para decirle a mis clientes tantos productos en sí no tengo.}\\[0.25cm]
+
+\large {
+8. ¿Tiene algún sistema de fidelización de clientes o promociones especiales? 
+
+En cuestión del sistema de fidelización de clientes, pues no contamos con ello ya que la mayoría de nuestros clientes, pues son de personal de persona a persona, no, no tenemos productos que vendamos fuera.}\\[0.25cm]
+
+\large {
+9. ¿Cuáles son sus principales desafíos actuales en la gestión de su inventario y ventas?
+
+Lo que tenemos actualmente es que en realidad no tenemos un control o un inventario bien para definir y saber cuántos productos en realidad tenemos es lo que el día de hoy no, no contamos con ese con esa situación del inventario.}\\[0.25cm]
+
+\large {
+10. ¿Qué características específicas busca en un sistema de punto de venta?
+
+Las características principales que buscamos en un punto de venta es que sea de fácil manejo para que cualquier persona que tenga de empleado pueda manejarlo sin ningún problema.}\\[0.25cm]
+
+\large {
+11. ¿Qué tipo de reportes necesita para tomar decisiones sobre su negocio? (¿Ventas por producto, inventario, márgenes de ganancia?)
+
+Bueno, los tipos de reporte que yo ocupo es saber qué productos se mueven más también la venta total, ya sea semanal o mensual de todo el negocio y también el margen, que tanto porcentaje es la ganancia, para poder tomar decisiones.}\\[0.25cm]
+
+\large {
+12. ¿Cuántos usuarios necesitarán acceso al sistema? 
+
+Los usuarios que ocuparía es uno administrativo que sería el personal y 6 o 7 que sean para las personas que trabajan en el negocio.}\\[0.25cm]
+
+\large {
+13.¿Tiene alguna preferencia en cuanto al diseño de las interfaces del sistema? (Personalización de la apariencia.)
+
+De preferencia que sea un sistema sencillo, fácil de usar con colores y si es posible que maneje iconos para no batallar en la búsqueda de cualquier producto.}\\[0.25cm]
+
+\large {
+14. ¿Qué nivel de soporte técnico espera recibir después de la implementación?
+
+Como principio este si se requeriría una capacitación personal para ver y checar todas las inquietudes que pueda tener posteriormente que me elaboren un tutorial que diga de principio a fin el funcionamiento del punto de venta.}\\[0.25cm]
+
+\newpage
+\pagenumbering{arabic}
+\chapter{Necesidades del Cliente}
+
+· \textbf{Inventario:} No tiene un sistema formal para llevar el inventario, lo hace de manera manual.
+
+· \textbf{Ventas:} No captura los datos de ventas de manera sistemática.
+
+· \textbf{Gestión de clientes:} No tiene un sistema de gestión de clientes ni de fidelización.
+
+· \textbf{Reportes:} Necesita reportes simples de ventas por producto, ventas totales y márgenes de ganancia.
+
+· \textbf{Facilidad de uso:} Busca un sistema intuitivo y fácil de usar, idealmente con iconos.
+
+· \textbf{Capacitación:} Requiere capacitación y un tutorial detallado.
+
+
+\newpage
+\pagenumbering{arabic}
+\chapter{Propuesta de Valor de Odoo}
+
+Odoo puede ofrecer una solución  a las necesidades del cliente, proporcionando un sistema de punto de venta (POS) que:
+
+· \textbf{Simplifica la gestión del inventario:} Permite un seguimiento preciso del stock en tiempo real, automatiza los pedidos de reposición y reduce las pérdidas por productos caducados.
+
+· \textbf{Optimiza las ventas:} Facilita la captura de datos de ventas, genera tickets y facturas electrónicas, y permite realizar promociones y descuentos.
+
+· \textbf{Mejora la relación con los clientes:} Ofrece herramientas para gestionar la base de clientes, crear programas de fidelización y enviar campañas de marketing.
+
+· \textbf{Proporciona información valiosa:} Genera reportes personalizados sobre ventas, inventario, márgenes de ganancia y otros indicadores clave de rendimiento.
+
+· \textbf{Es fácil de usar:} Cuenta con una interfaz intuitiva y personalizable, ideal para usuarios con poca experiencia en sistemas informáticos.
+
+
+\end{document}
